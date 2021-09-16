@@ -1,34 +1,62 @@
-# 2 - Storing Firebase Config in a `.env` File
-
+# 1 - Setting up a React And Firebase Project
 
 This tutorial is based on the **React and Firebase Starter💞** that we created. You can read more about it in its [readme](https://github.com/codebusters-ca/react-firebase-starter#react--firebase-starter).
 
 ## Prerequisites
 
-In the [first tutorial](https://github.com/codebusters-ca/firebase-course/tree/01-project-setup#1---setting-up-a-react-and-firebase-project), we set up a brand new React and Firebase app, initialized a local Firebase directory with Emulators, and connected it to a Firebase project. You need to have all of that working in order to use this branch's code.
+You will need the following to use this starter: 
 
-## Use
+* [Node](https://nodejs.org/en/)
+* [Java DK](https://docs.oracle.com/en/java/javase/16/install/overview-jdk-installation.html#GUID-8677A77F-231A-40F7-98B9-1FD0B48C346A)
+* A Firebase project created in [Firebase Console](https://console.firebase.google.com)
 
-Check out this branch with `git checkout 02-firebase-configs`.
+## Setup Guide
 
-Install new dependencies with `npm install`.
+### Setting Up React
 
-**Optional**: if you want to switch to a different project from the one you chose when running `firebase init`:
-  - Get the list of all Firebase projects available to you: `firebase projects:list`
-  - Copy the id of the project you want to switch to
-  - Switch with `firebase use <your-project-id>`
+Clone this repo:
+```git clone https://github.com/codebusters-ca/firebase-course.git```
 
-To create the `.env` file, run `node configTool.js` from the root directory of your project. You should see the `.env` file appear with your project's config in it.
+Install the dependencies:
+```cd .\firebase-course\ && npm install```
 
-To make sure that the environment variables are being passed to the app, run it with:
-* `npm run emulators`
-* In a separate terminal, `npm start`.
+Do the same in the `/functions` folder to use Firebase cloud functions:
+```cd functions && npm install```
 
-You should see your app compiled and working successfully.
+At this point, the client side should work. You can launch it with:
+```cd .. && npm start``` 
 
-## What's Next?
+### Setting Up Firebase
 
-Move on to the next tutorial with `git checkout 03-create-read-update` and follow instructions in its Readme to start reading from and writing to the Firestore database.
+You may have noticed that data isn't yet being fetched from Firebase. We need to connect a Firebase project to make it work.
+
+In [Firebase Console](https://console.firebase.google.com), enable Firestore Database and Authentication via Google.
+
+Back to your code editor, open a new terminal. Log into Firebase CLI:
+```cd .\firebase-course\ && firebase login```
+
+Start connecting your Firebase project:
+```firebase init```
+and follow the prompts. **When asked if you'd like to overwrite `firestore.rules`, choose 'No'.** This project is set up to use Firestore, Functions, and Emulators. Make sure you choose these options when prompted by Firebase CLI. Similarly, when asked about which emulators you want to use, choose Auth, Firestore, and Functions:
+
+https://www.loom.com/share/e419d8894bf44bfabca327b80c64b019
+
+Now that we've initialized the local Firebase directory, let's connect it to your project.
+
+Run `firebase projects:list` and copy the ID of the project you want to use.
+
+Then tell Firebase CLI to use that project:
+```firebase use <your project ID>```
+
+Head over to `/src/firebase.clientApp.js` and replace the `firebaseConfig` object with the one found in [Firebase Console](https://console.firebase.google.com) under Project Settings.
+
+Finally, run Emulators with `npm run emulators`. Head over to the browser ([localhost:3000](http://localhost:3000/)) and see `Hello from Firestore Emulator` appear there.
+
+Congratulations! The setup process is now complete.
+
+### What's Next?
+
+Move on to the next tutorial with `git checkout 02-firebase-configs` and follow instructions in its Readme to store your Firebase config securely in a `.env` file and quickly switch between projects.
 
 ## Contribute
 
