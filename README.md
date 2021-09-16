@@ -54,7 +54,7 @@ Then tell Firebase CLI to use that project:
 Head over to `/src/firebase.clientApp.js` and replace the `firebaseConfig` object with the one found in [Firebase Console](https://console.firebase.google.com) under Project Settings.
 
 Finally, run Emulators with `npm run emulators` at the root directory. 
-Then in another terminal at the root level run 'rpm run dev'. 
+Then in another terminal at the root level run `rpm run dev`. 
 Head over to the browser ([localhost:3000](http://localhost:3000/)) and see `Hello from Firestore Emulator` appear there.
 
 Congratulations! The setup process is now complete.
