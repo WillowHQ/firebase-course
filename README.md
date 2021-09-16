@@ -16,6 +16,8 @@ You will need the following to use this starter:
 
 Clone this repo:
 ```git clone https://github.com/codebusters-ca/firebase-course.git```
+
+Checkout this branch:
 ```git checkout 01-project-setup```
 
 Install the dependencies:
