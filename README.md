@@ -21,8 +21,7 @@ Install new dependencies with `npm install`.
 To create the `.env` file, run `node configTool.js` from the root directory of your project. You should see the `.env` file appear with your project's config in it.
 
 To make sure that the environment variables are being passed to the app, run it with:
-* `npm run emulators`
-* In a separate terminal, `npm start`.
+* `npm run start`
 
 You should see your app compiled and working successfully.
 
