@@ -13,8 +13,6 @@ dist/
 .env*
 
 # Firestore
-.firebaserc*
 firestore-debug.log*
 ui-debug.log*
 firebase-debug.log*
-mock-data/*
